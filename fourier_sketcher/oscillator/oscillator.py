@@ -25,7 +25,7 @@ class Oscillator:  # pylint: disable=too-few-public-methods
         Angle value for arbitrary time t.e
 
         Args:
-            t: time.
+            t: Time.
         Returns:
             Angle at time.
         """

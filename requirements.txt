@@ -1,9 +1,10 @@
 black==19.10b0
 fire==0.4.0
 isort==5.8.0
+matplotlib==3.5.0
+moviepy==1.0.3
 mypy==0.901
 numpy==1.21.5
+opencv-python==4.5.5.64
 pylint==2.12.2
 pytest==7.0.1
-requests==2.26.0
-wordfreq==2.5.1

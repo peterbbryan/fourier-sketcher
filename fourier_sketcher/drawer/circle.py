@@ -6,7 +6,6 @@ from typing import Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.axes import Axes
 
 
 class Circle:
@@ -44,15 +43,13 @@ class Circle:
             y0 + self._radius * np.sin(self._angle),
         )
 
-    def draw(self, ax: Axes) -> None:  # pylint: disable=invalid-name
+    def draw(self) -> None:  # pylint: disable=invalid-name
         """
         Plot circle.
 
         Args:
             ax: Plot axis.
         """
-
-        plt.sca(ax)
 
         self._draw_center()
         self._draw_circle()

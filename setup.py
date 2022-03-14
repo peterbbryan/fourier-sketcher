@@ -21,5 +21,5 @@ setuptools.setup(
     license="MIT",
     python_requires=">3.7",
     packages=setuptools.find_packages(),
-    install_requires=["numpy",],
+    install_requires=["matplotlib", "moviepy", "numpy", "opencv-python"],
 )
