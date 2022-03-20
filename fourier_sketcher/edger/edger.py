@@ -3,10 +3,13 @@ Classes to represent image loading.
 """
 
 import pathlib
+from typing import Any, Dict
 
 import cv2 as cv
 import numpy as np
 from PIL import Image
+
+_DEFAULT_KWARGS = {"threshold1": 100, "threshold2": 150}
 
 
 class Edger:  # pylint: disable=too-few-public-methods
@@ -14,7 +17,7 @@ class Edger:  # pylint: disable=too-few-public-methods
     Logic for loading image from file.
     """
 
-    def __init__(self, path_str: str) -> None:
+    def __init__(self, path_str: str, **kwargs: Dict[str, Any]) -> None:
         """
         Args:
             path: Path to file to load.
@@ -30,12 +33,14 @@ class Edger:  # pylint: disable=too-few-public-methods
 
         self._image = extension_map(path_str)
 
+        self._kwargs = kwargs if kwargs else _DEFAULT_KWARGS
+
     @property
     def binary_mask(self):
         """ Binary mask from image. """
 
         im = np.array(self._image)  # pylint: disable=invalid-name
-        edges = cv.Canny(im, 100, 150)  # pylint:disable=no-member
+        edges = cv.Canny(im, **self._kwargs)  # pylint:disable=no-member
 
         return np.array(edges).astype(np.bool)
 
